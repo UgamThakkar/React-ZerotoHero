@@ -15,4 +15,4 @@ const Heading3 = () => <h1>Third way to write react Components</h1>
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(Heading); 
+root.render(<Heading />); 
