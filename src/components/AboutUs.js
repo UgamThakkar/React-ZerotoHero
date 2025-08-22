@@ -7,20 +7,20 @@ import React from 'react'
 class About extends React.Component{
   constructor(props){
     super(props);
-    console.log("Parent Constructor");
+    // console.log("Parent Constructor");
   }
 
-  componentDidCatch(){
-    console.log("Parent Componentdidmount");
+  componentDidMount(){
+    // console.log("Parent Componentdidmount");
   }
 
   render(){
-    console.log("Parent Render");
+    // console.log("Parent Render");
       return (
     <div>
       <h2>AboutUs</h2>
       <UserClass name = {"First Child"} location={"Canada"}/>
-      <UserClass name = {"Second Child"} location={"Canada"}/>
+      {/* <UserClass name = {"Second Child"} location={"Canada"}/> */}
 
       </div>
     )
@@ -52,13 +52,5 @@ order of exuction - UNDERSTANDING REACT LIFE CYCLE - 2 phases - RENDER PHASE AND
 */
 
 
-// const AboutUs = () => {
-//   return (
-//     <div>
-//       <h2>AboutUs</h2>
-//       <UserClass name = {"Ugam Thakkar(from class based components)"} location={"Canada"}/>
-//       </div>
-//   )
-// }
 
 export default About;

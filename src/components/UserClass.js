@@ -3,35 +3,41 @@ import React from "react";
 class UserClass extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            count: 0,
-            count2: 2,
-        }
 
-        console.log(this.props.name + "Constructor");
+        this.state = {
+            userInfo:{
+                login:"Dummy",
+                bio:"Default",
+                avatar_url:"dummy photo",
+            },
+        };
+
+        // console.log(this.props.name + "Constructor");
     }
 
-    componentDidMount(){
-        console.log(this.props.name + "component did mount");
+    async componentDidMount(){
+        // console.log(this.props.name + "component did mount");
+        const data = await fetch("https://api.github.com/users/UgamThakkar");
+        const json = await data.json();
+        
+        this.setState({
+            userInfo:json,
+        });
+        
+        // console.log(json)
+
     }
 
 
     render(){
-        console.log(this.props.name + "Render");
-        
-        const {name, location} = this.props;
-        const { count } = this.state;
+        // console.log(this.props.name + "Render");
+        const { login, bio, avatar_url } = this.state.userInfo;
+        console.log(this.state.userInfo);
         return (
             <div className='user-card'>
-                <h2>Count: {count}</h2>
-                <button onClick={()=>{
-                    //NEVER UPDATE STATE VARIABLES DIRECTLY eg: this.state.count = this.state.count+1 - not allowed this is bad practice.
-                    this.setState({
-                        count: this.state.count + 1, //in class based compnents this is where it will re-render the entire component whenever the count increases.
-                    });
-                }}>Increase Count</button>
-                <h2>{name}</h2>
-                <h3>Location:{location}</h3>
+                <span><img src="https://avatars.githubusercontent.com/u/60033737?v=4" alt="Github-avatar" className="githubimg"></img></span>
+                <h2>{login}</h2>
+                <h3>{bio}</h3>
                 <h4>Contact: thakkarugam@</h4>
             </div>
         );
