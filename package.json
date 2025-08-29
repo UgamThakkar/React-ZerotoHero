@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "tailwind:init": "tailwindcss.cmd init -p"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
     "parcel": "^2.15.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -11,5 +13,10 @@
   },
   "browerslist": [
     "last 2 versions"
-  ]
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  }
 }

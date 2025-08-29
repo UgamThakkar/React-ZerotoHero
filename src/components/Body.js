@@ -25,12 +25,13 @@ const Body = () =>{
     
     return listOfRestaurants.length == 0 ? <Shimmer /> : (
         <div className="body">
-            <div className="filter">
+            <div className="filter flex">
                 
-                <div className="search">
-                    <input type="text" value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}/>
+                <div className="search p-4 m-4">
+                    <input className="border border-solid border-black" type="text" value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}/>
                         
-                        <button onClick={()=>{
+                        <button className="px-4 py-0.5 m-4 bg-green-100 rounded-lg" 
+                            onClick={()=>{
                             console.log(searchValue);
 
                             const filteredSetofRestaurants = listOfRestaurants.filter((res)=>
@@ -41,12 +42,15 @@ const Body = () =>{
                         Search</button>
                 </div>
                 
-                <button className="filter-btn" onClick={()=>{
-                    const filteredList = listOfRestaurants.filter((res)=>res.info.avgRating>4.3);
-                    setFilteredRestaurants(filteredList);
-                }}>Top Rated Restaurants</button>
+                <div className="search p-4 m-4 flex items-center">
+                        <button className="px-4 py-1 bg-gray-100 rounded-lg" onClick={()=>{
+                            const filteredList = listOfRestaurants.filter((res)=>res.info.avgRating>4.3);
+                            setFilteredRestaurants(filteredList);
+                        }}>Top Rated Restaurants</button>
+                </div>
+                
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap text-lg">
                 {filteredRestaurants.map((restaurant, index)=>{
                     return <Link key={`${restaurant.info.id}-${index}`} to={"/restaurants/" + restaurant.info.id}><RestaurantCard resdata={restaurant.info}/></Link>
                 })}

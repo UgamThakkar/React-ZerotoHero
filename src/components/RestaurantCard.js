@@ -9,9 +9,9 @@ const RestaurantCard = ({ resdata }) => {
     : "https://via.placeholder.com/660x400?text=No+Image"; // fallback
 
   return (
-    <div className="res-card">
-      <img src={imageUrl} alt={name} className="res-logo" />
-      <h3>{name}</h3>
+    <div className="m-4 p-4 w-[238px] bg-gray-100 hover:bg-gray-200">
+      <img src={imageUrl} alt={name} className="rounded-sm" />
+      <h3 className="font-bold py-2">{name}</h3>
       <h4>{avgRating} Stars</h4>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{sla?.deliveryTime} mins</h4>
