@@ -7,11 +7,11 @@ import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const [showVegOnly,setShowVegOnly] = useState(false);
+  const [showIndex, setShowIndex] = useState(null);
 
   const {resId} = useParams();
 
   const resInfo = useRestaurantMenu(resId);
-  console.log("resinfo", resInfo);
 
   if (!resInfo) return <Shimmer />;
 
@@ -56,10 +56,10 @@ const RestaurantMenu = () => {
 
       {/* Categories Accordion */}
 
-      {categories.map((category) => {
+      {categories.map((category, index) => {
         const cat = category?.card?.card;
         if (!cat?.itemCards) return null;
-        return <RestaurantCategory key={cat.categoryId} data={cat} />;
+        return <RestaurantCategory key={cat.categoryId} data={cat} showItems={index === showIndex ? true : false} setShowIndex = {()=>setShowIndex(index)}/>;
       })}
 
     </div>

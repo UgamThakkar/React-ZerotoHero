@@ -12,11 +12,9 @@ class UserClass extends React.Component{
             },
         };
 
-        // console.log(this.props.name + "Constructor");
     }
 
     async componentDidMount(){
-        // console.log(this.props.name + "component did mount");
         const data = await fetch("https://api.github.com/users/UgamThakkar");
         const json = await data.json();
         
@@ -24,13 +22,11 @@ class UserClass extends React.Component{
             userInfo:json,
         });
         
-        // console.log(json)
 
     }
 
 
     render(){
-        // console.log(this.props.name + "Render");
         const { login, bio, avatar_url } = this.state.userInfo;
         console.log(this.state.userInfo);
         return (
