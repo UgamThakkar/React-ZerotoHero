@@ -4,12 +4,15 @@
     "tailwind:init": "tailwindcss.cmd init -p"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.9.0",
     "@tailwindcss/postcss": "^4.1.12",
     "parcel": "^2.15.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-redux": "^9.2.0",
     "react-router": "^6.26.1",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "redux": "^5.0.1"
   },
   "browerslist": [
     "last 2 versions"
