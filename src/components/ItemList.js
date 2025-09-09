@@ -1,6 +1,18 @@
+import { useDispatch } from "react-redux";
 import { IMG_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+
+  const dispatch = useDispatch();
+  //dispatching an action to add items to the cart slice.
+  const handleAddItem = (item) => {
+    console.log(item);
+    //calling the reducer function inside the dispatch function with the payload.
+    dispatch(addItem(item));
+  }
+
+
   return (
     <div className="bg-gradient-to-br from-slate-50 to-gray-100 p-4">
       <div className="max-w-4xl mx-auto">
@@ -41,7 +53,7 @@ const ItemList = ({ items }) => {
                     alt={item.card.info.name}
                   />
                 )}
-                <button className="absolute bottom-2 right-2 px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg hover:cursor-pointer hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-200 font-medium text-sm">
+                <button onClick={()=> handleAddItem(item)} className="absolute bottom-2 right-2 px-4 py-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg hover:cursor-pointer hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-200 font-medium text-sm">
                   Add +
                 </button>
               </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ListItems from './ListItems';
+import ItemList from './ItemList';
 // Accordian Header Component
 const RestaurantCategory = ({data, showItems, setShowIndex}) => {
 
@@ -14,7 +14,7 @@ const RestaurantCategory = ({data, showItems, setShowIndex}) => {
                 <span>🔽</span>
             </div>
             {/* Accordion Body */}
-            {showItems && <ListItems items={data?.itemCards} />}
+            {showItems && <ItemList items={data?.itemCards} />}
         </div>
 
     </div>

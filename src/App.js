@@ -9,6 +9,7 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
     return (
@@ -48,6 +49,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/grocery",
                 element: (<Suspense fallback={<h1>Loading...</h1>}><Grocery /></Suspense>)
+            },
+            {
+                path:"/cart",
+                element: <Cart />
             }
 
         ],
