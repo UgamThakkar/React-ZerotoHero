@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Header from "../Header"
 import { Provider } from "react-redux";
 import appStore from "../../utils/appStore"
@@ -37,4 +37,25 @@ it("Should load header component with Cart", () => {
     const CartItems = screen.getByText(/Cart/);
 
     expect(CartItems).toBeInTheDocument();
+});
+
+
+it("Should Change login button to logout on click", () => {
+    render(
+        <BrowserRouter>
+            <Provider store={appStore}>
+                <Header />
+            </Provider>
+        </BrowserRouter>
+    );
+
+    const loginButton = screen.getByRole("button", {name:"Login"});
+    // const loginButton = screen.getByText("login");
+
+    //if we want to simulate any action in the code then we use fireEvent and then there are multiple functions associated with it for example click
+    fireEvent.click(loginButton)
+
+    const logoutButton = screen.getByRole("button", {name:"Logout"});
+
+    expect(logoutButton).toBeInTheDocument();
 });

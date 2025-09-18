@@ -2,7 +2,7 @@ import { IMG_URL } from "../utils/constants";
 
 const RestaurantCard = ({ resdata }) => {
   const { name, avgRating, cuisines, sla, costForTwo, cloudinaryImageId } = resdata;
-
+  console.log("restdata", resdata);
   // Build image URL using the exported constant
   const imageUrl = cloudinaryImageId
     ? IMG_URL + cloudinaryImageId
