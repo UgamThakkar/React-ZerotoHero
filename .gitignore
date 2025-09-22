@@ -3,3 +3,4 @@
 /.parcel-cache
 src/utils/constants.js
 coverage/
+src/components/tests/mocks

@@ -2,7 +2,8 @@
   "scripts": {
     "start": "parcel index.html",
     "tailwind:init": "tailwindcss.cmd init -p",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",

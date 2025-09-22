@@ -31,7 +31,7 @@ const Body = () =>{
             <div className="filter flex">
                 
                 <div className="search p-4 m-4">
-                    <input className="border border-solid border-black" type="text" value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}/>
+                    <input className="border border-solid border-black" data-testid="searchInput" type="text" value={searchValue} onChange={(e)=>{setSearchValue(e.target.value)}}/>
                         
                         <button className="px-4 py-0.5 m-4 bg-green-100 rounded-lg" 
                             onClick={()=>{

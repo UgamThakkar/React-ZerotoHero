@@ -2,14 +2,14 @@ import { IMG_URL } from "../utils/constants";
 
 const RestaurantCard = ({ resdata }) => {
   const { name, avgRating, cuisines, sla, costForTwo, cloudinaryImageId } = resdata;
-  console.log("restdata", resdata);
+
   // Build image URL using the exported constant
   const imageUrl = cloudinaryImageId
     ? IMG_URL + cloudinaryImageId
     : "https://via.placeholder.com/660x400?text=No+Image"; // fallback
 
   return (
-    <div className="m-4 p-4 w-[238px] bg-gray-100 hover:bg-gray-200">
+    <div data-testid="resCard" className="m-4 p-4 w-[238px] bg-gray-100 hover:bg-gray-200">
       <img src={imageUrl} alt={name} className="rounded-sm" />
       <h3 className="font-bold py-2">{name}</h3>
       <h4>{avgRating} Stars</h4>

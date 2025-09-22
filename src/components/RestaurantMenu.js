@@ -13,13 +13,15 @@ const RestaurantMenu = () => {
 
   const resInfo = useRestaurantMenu(resId);
 
+  console.log("->>>>>>>>>>>>>", resInfo);
+
   if (!resInfo) return <Shimmer />;
 
   const { name, costForTwoMessage, totalRatingsString, cuisines } =
-    resInfo?.cards[2]?.card?.card?.info || {};
+    resInfo?.data?.cards[2]?.card?.card?.info || {};
 
   const menuItems =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+    resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
       ?.map((c) => c?.card?.card?.itemCards)
       .filter(Boolean)
       .flat()
@@ -33,7 +35,6 @@ const RestaurantMenu = () => {
 
     const nestedCategories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory");
   
-    console.log("Nested Categories", nestedCategories);
   
     return (
     <div className="text-center">
